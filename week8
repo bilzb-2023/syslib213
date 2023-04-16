@@ -30,6 +30,29 @@ I should've searched the opac using the url, http://34/70.197.240/opacbb.php
 Transcript: https://cseanburns.net/WWW/systems-librarianship/16.5-basic-opac.html
 
 
+Here is the code used to add the week8 to git:
 
+bbilz@syslib-2023:~/repos/syslib213$ nano week8
 
+bbilz@syslib-2023:~/repos/syslib213$ ls
+README.md  syslib213.md  week6.md  week8
+
+bbilz@syslib-2023:~/repos/syslib213$ git add week8
+
+bbilz@syslib-2023:~/repos/syslib213$ git commit -m "created file"
+[main aee902b] created file
+ 1 file changed, 35 insertions(+)
+ create mode 100644 week8
+
+bbilz@syslib-2023:~/repos/syslib213$ git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 771 bytes | 771.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:bilzb-2023/syslib213.git
+   7418202..aee902b  main -> main
+bbilz@syslib-2023:~/repos/syslib213$
 
