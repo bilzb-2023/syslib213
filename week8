@@ -1,0 +1,35 @@
+# Week 8: Creating a Bare Bones Opac, Part 1
+---
+
+
+## Description
+---
+
+I was searching the incorrect url, http://34.70.197.240/opacbb.html
+I should've searched the opac using the url, http://34/70.197.240/opacbb.php
+
+
+
+
+### Tasks
+---
+
+- [x] Recreate the HTML and PHP files (just like in the last section).
+
+- [x] Feel free to copy the code that Dr. Burns provided.
+
+- [x] Login to MySQL from the command line, and insert at least five or so
+      additional records. Play around with my new OPAC.
+
+- [x] Journal / document anything I find meaningful about this week's process.
+
+- [x] Format your notes in Markdown and push your notes to GitHub.
+      Feel free to add the code that I provide to your GitHub repos, too.
+      Be as creative as you want with what you do with Git and GitHub.
+
+Transcript: https://cseanburns.net/WWW/systems-librarianship/16.5-basic-opac.html
+
+
+
+
+
