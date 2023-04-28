@@ -1,0 +1,37 @@
+# Week 11: Install Omeka
+
+---
+
+## Task
+
+1. Download and install Omeka.
+2. Add content and learn to use Omeka.
+
+
+---
+
+
+###Omeka Install Notes###
+
+1. Created a new virtual machine.
+2. Connected to the new machine.
+3. Installed the prerequisites  **sudo apt install imagemagick**  enable mod-rewrite **     
+4. Updated the machine by using the apt commands and then rebooted because of kernel upgrade
+5. **sudo apt install apache2**
+6. **sudo apt install php libapache2-mod-php**
+7. **sudo systemctl restart apache2**
+8. Edited **dir.conf**   (saved a backup dir.conf.bak) to reorder file order
+9. sudo apt install mysql-server
+10. Logged into mysql and created a new user and new database for omeka
+11. **sudo apt install php-mysql php-mysqli**
+12. Edited **apache2.conf** and changed to **Override All**    (created a backup copy backup apache2.conf.bak)  
+13. **sudo apt install php-curl php-xml php-imagick php-mbstring php-zip php-intl**
+14. Downloaded Omeka using wget
+15. Installed unzip using apt command and unzipped Omeka
+16. Moved omeka-3.1.1 to omeka/
+17. Edited **db.ini** file in omeka/ directory and added our Omeka credentials    (created a backup copy,  db.ini.bak file)
+18. **chown -R www:data:www-data /var/www/html/omeka/files/**
+19. Visit http://34.28.22.29/omeka/
+20. Install Omeka
+
+**Be sure to save the username and password**	

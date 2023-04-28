@@ -1,0 +1,172 @@
+# Week 12: Install the Koha ILS
+
+---
+
+## Task
+
+1. Download and install the Koha ILS.
+2. Learn how to use it. Go beyond just the install.
+3. Review the series of tasks at the end of the handbook page.
+4. [Koha Install Handbook page](https://cseanburns.github.io/systems-librarians)
+5. Please share the URL to your Koha public OPAC page.
+
+---
+
+### Instructions
+
+**Google Cloud Setup**
+
+1. Create a new virtual machine instance.
+
+2. Configure the Google firewall to allow  HTTP traffic to the Koha install.
+
+3. The New Virtual Instance needs more memory (RAM). This will increase the cos>
+
+4. The virtual instance we have been using does not meet the memory (RAM) needs>
+
+5. Create a Google Cloud firewall rule to allow traffic to port 8080
+
+6. Go to the Google Cloud Console.
+
+7. Click on the icon at the top left (looks like a hamburger).
+
+8. Click on VPN Network, then choose Firewall
+
+9. Create a firewall rule **(do not choose Create a firewall policy)**
+
+10. Add name: koha
+
+11. Add description: open port 8080
+
+12. Next to Targets, click on All instances in the network
+
+13. In the Source IPv4 ranges, add 0.0.0.0/0
+
+14. Click on Specified protocols and ports
+
+15. Click on TCP, Add 8080 in the Ports box
+
+16. Click Create button
+
+---
+
+***Install Koha Repo***
+
+1. Update local repositories **sudo apt update**
+
+2. **sudo apt upgrade** to upgrade the servers
+
+3. **sudo apt autoremove -y && sudo apt clean**
+
+4. **sudo apt install gnupg2** to create digital signatures, encrypt data, aid secure communication
+
+5. Reboot due to the new kernel installed  **sudo reboot now**
+
+
+***Add Koha Repository***
+
+1. Start with **sudo su** command
+
+2. Add the Koha repository to the server server:
+
+**echo 'deb http://debian.koha-community.org/koha stable main' | sudo tee /etc/apt/sources.list/d/koha.list
+
+3. Add the digital signature that verifies the above repo:
+
+**wget -q -O- https://debian.koha-community.org/koha/gpg.asc | sudo apt-key add -**
+
+
+***Install Koha***
+
+1. **apt update**
+
+2. **apt show koha-common**
+
+3. install it  **apt install koha-common**
+
+
+***Configure Koha***
+
+1. Edit some configuration files for Koha **nano /etc/koha/koha-sites.conf**
+
+2. In the above koha-sites.conf file, change the line that contains the following INTRAPORT="80" to INTRAPORT="8080"
+
+3. Install and setup mysql-server **apt install mysql-server**
+
+4. Set the root MySQL password  **mysqladmin -u root password bibliolib1**
+
+5. Enable URL rewriting  **a2enmod rewrite**
+
+6. Enable CGI functionality  **a2enmod cgi**
+
+7. Restart Apache2  **systemctl restart apache2**
+
+8. Create a database for Koha  **koha-create --create-db bibliolib**
+
+9. Add **Listen 8080** under Listen 80  **nano /etc/apache2/ports.conf**
+
+10. Make sure Apache configuration changes are valid  **apachectl configtest**
+
+11. Restart Apache2  **systemctl restart apache2**
+
+12. Disable the default Apache2 setup, enable traffic compression using **deflate**, enable the **bibliolib** site, reload Apache2's configurations and restart again:
+
+**a2dissite 000-default
+a2enmod deflate
+a2ensite bibliolib
+systemctl reload apache2
+systemctl restart apache2**
+
+
+***Koha Web Installer***
+
+1. Find the Koha username and password in the following file
+
+**nano /etc/koha/sites/bibliolib/koha-conf.xml**
+
+2. Look for the **<config> stanza** (line number 252) and the line beginning with **<use>**
+
+3. Make sure the URL begins with *http**, **not https**
+
+4. Visit the web installer    **http://34.66.38.232:8080**
+
+**The 8080 does not appear in the url; it's hidden.**
+
+
+**[Introduction to the Koha installation process](https://koha-community.org/manual//22.11/en/html/installation.html)**
+
+
+***Public OPAC***
+
+1. Make setting changes to view the public-facing OPAC
+
+- Click on **More** in the top drop down box
+- Click on **Administration**
+- Click on **Global System Preferences**
+- Click on **OPAC** in the left hand side bar
+- Scroll down to the **OPACBaseURL** line
+- Enter the IP address of my server: **http://34.66.38.232**
+- Click on **Save all OPAC Preferences**
+
+2. Save the preferences
+
+3. Visit the site  **http://34.66.38.232**
+
+
+***Additional Tasks***
+
+Learn the Koha system
+
+- Create patron accounts
+- Create bibliographic records
+- Check out books to patrons
+- Delete patron circulation history
+
+
+***References***
+
+**[Koha ILS](https://koha-community.org) documentation**
+
+**[Koha on Debian](https://wiki.koha-community.org/wiki/Koha_on_Debian)**
+
+**[Install Koha on Google Cloud Platform](https://wiki.koha-community.org/wiki/Koha_on_Debian)**

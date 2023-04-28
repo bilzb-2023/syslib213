@@ -30,10 +30,10 @@ I hadn't configured Git on the remote server (Linux).
 - [x] I setup git on my Linux server.
 - [x] I configured git using these commands:
 
-git config --global user.name "First Name Last Name"
-git config --global user.email "firstlast@example.com"
-git config --global core.editor nano
-git config --global init.defaultBranch main
+- git config --global user.name "First Name Last Name"
+- git config --global user.email "firstlast@example.com"
+- git config --global core.editor nano
+- git config --global init.defaultBranch main
 
 I then checked the settings using this command: git config --list
 

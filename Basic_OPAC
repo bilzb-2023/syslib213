@@ -1,0 +1,30 @@
+# Week 8: Creating a Bare Bones OPAC
+
+---
+
+## Task
+
+1. Learn how to set up a LAMP (Linux, Apache, MySQL, PHP) stack.
+
+This stack enables us to create a web server that provides extra funtionality via PHP and MySQL, both of which are required to run content management systems and integrated library systems.
+
+
+### Creating the HTML Page and a PHP Search Page
+
+1. Create the opacbb.html page with script from [Dr. Burns' Systems Librarianship Book](https://cseanburns.github.io/systems-librarianship/16.5-basic-opac.html)
+
+2. **PHP Search Script**
+
+- Follow the same process as number 1 above but use the PHP Search Script
+
+3. Modifications
+
+- Connect to the MySQL server: **mysql -u opacuser -p**
+
+- Run the insert command with the data for the new records
+
+insert into books
+(author, title, publisher, copyright) values
+('Emma Donoghue', 'Room', 'Little, Brown \& Company', '2010-08-06'),
+('Zadie Smith', 'White Teeth', 'Hamish Hamilton', '2000-01-27');
+
